@@ -1,0 +1,116 @@
+################################################################################
+# General
+################################################################################
+description: forecast
+device: cuda:0
+model: FNO2D
+seed: 137
+wandb_mode: online
+mode: fixed_future
+mode_pt: rand
+verbose: False
+run_all: True
+
+################################################################################
+# Data
+################################################################################
+pde: heat_adv_burgers
+pde_dim: 2
+num_samples: 500
+num_samples_pt: 9216
+base_resolution: [32, 32, 32]
+target: 32
+t_range: [0, 2]
+x_range: [-1, 1]
+load_all: true
+time_window: 8
+time_future: 1
+augmentation_ratio: 0.0
+noise_level: 0.0
+max_x_shift: 1
+max_velocity: 1
+spatial_downsampling: 1
+temporal_downsampling: 32
+subset: heat,adv,burger
+train_path_pt: /path/to/pretraining/data.h5
+train_path: /path/to/train/data.h5
+valid_path: /path/to/valid/data.h5
+train_path_out: /path/to/train/data_OOD.h5
+valid_path_out: /path/to/valid/data_OOD.h5
+
+################################################################################
+# Experiments
+################################################################################
+subset_list: ["heat", "adv", "burger"]
+distribution_list: ["in", "out"]
+samples_list: [100, 250, 500, 1000]
+
+################################################################################
+# Pretraining
+################################################################################
+pretraining: sort_time
+pretraining_epochs: 200
+pretraining_tau: mean
+pretraining_lr: 0.001
+pretraining_batch_size: 32 
+pretraining_scheduler_step: 20
+pretraining_gamma: 0.5
+pretraining_temperature: 0.1
+pretraining_h_size: 20
+pretraining_z_size: 10
+eval: False
+
+# Spatiotemporal Loss Parameters
+spatial_patch_size: 16
+temporal_patch_size: 2
+difficulty_threshold: 0.75
+weighted_sample: 0.5
+n_classes: 24
+
+# Classification head parameters
+projector: CNN
+MLP_hidden_dim: 64
+CNN_hidden_dim: 8
+kernel_size: 3
+channels: 8
+stride: 1
+gamma: 0.01
+CNN_decoder_hidden_dim: 128
+
+################################################################################
+# Training
+################################################################################
+batch_size: 32
+num_epochs: 200
+unrolling: 0
+nr_gt_steps: 2
+lr: 0.001
+lr_decay: 0.4
+lr_min: 0.00001
+weight_decay: 0.000001
+dropout: 0.05
+parameter_ablation: True
+tf_channels: 32
+
+################################################################################
+# Model
+################################################################################
+fno_modes: 4
+fno_width: 48
+fno_num_layers: 4
+
+layer_sizes_branch: [256, 256, 256]
+layer_sizes_trunk: [256, 256, 256]
+activation: silu
+kernel_initializer: glorot normal
+regularization: None
+
+in_emb_dim: 32
+out_seq_emb_dim: 32
+depth: 2
+heads: 2
+enc_res: 32
+latent_channels: 32
+decoding_depth: 1
+scale: 8
+dec_res: 32
