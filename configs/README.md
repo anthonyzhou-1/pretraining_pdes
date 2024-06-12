@@ -15,14 +15,19 @@ To run an experiment for Autoregressive prediction:
 python train.py --config=configs/[experiment].yaml --mode=next_step
 ```
 
-To specify a desired # of downstream samples or distribution:
-```
-python train.py --config=configs/[experiment].yaml --samples_list=[100, 250] --distribution_list=["out"]
-```
-
 To specify a desired model:
 ```
 python train.py --config=configs/[experiment].yaml --model=['FNO2D', 'DeepONet2D', 'OFormer2D', 'Unet']
+```
+
+To specify a desired data augmentation:
+```
+python train.py --config=configs/[experiment].yaml --augmentation=['noise', 'shift', 'scale']
+```
+
+To specify a desired # of downstream samples or distribution:
+```
+python train.py --config=configs/[experiment].yaml --samples_list=[100, 250] --distribution_list=["out"]
 ```
 
 To fine-tune on a specific equation:

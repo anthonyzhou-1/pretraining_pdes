@@ -4,9 +4,10 @@
 description: forecast
 device: cuda:0
 model: FNO2D
-seed: 137
+seed: 1
 wandb_mode: online
 mode: fixed_future
+mode_pt: none
 verbose: False
 run_all: True
 
@@ -48,7 +49,7 @@ samples_list: [100, 250, 500, 1000]
 ################################################################################
 # Pretraining
 ################################################################################
-pretraining: None
+pretraining: picl
 pretraining_epochs: 200
 pretraining_tau: mean
 pretraining_lr: 0.001
@@ -62,10 +63,10 @@ eval: False
 
 # Spatiotemporal Loss Parameters
 spatial_patch_size: 32
-temporal_patch_size: 4
+temporal_patch_size: 2
 difficulty_threshold: 0.75
 weighted_sample: 0.5
-n_classes: 5
+n_classes: 24
 
 # Classification head parameters
 projector: CNN

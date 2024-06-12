@@ -25,6 +25,7 @@ x_range: [-1, 1]
 load_all: true
 time_window: 8
 time_future: 1
+augmentation: none
 augmentation_ratio: 0.0
 noise_level: 0.0
 max_x_shift: 1

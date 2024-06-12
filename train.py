@@ -368,6 +368,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--train_path', type=str, help='Path to training data')
     parser.add_argument('--valid_path', type=str, help='Path to validation data')
+    parser.add_argument('--augmentation', type=str, help='Augmentation')
     parser.add_argument('--load_all', type=eval, help='Load all data into memory')
     parser.add_argument('--parameter_ablation', type=eval, help="Add params to solver")
     parser.add_argument('--num_samples', type=int, help="Number of samples to load")
