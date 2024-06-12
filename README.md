@@ -22,6 +22,6 @@ Data was generated according to parameters detailed in the paper using the code 
 For specific experiments, please refer the appropriate .yaml file and command line args in the [configs](configs) directory. The project uses Weights and Biases to log metrics.
 
 ```
-python train.py --config=configs/[dim]/pretrain.yaml
+python train.py --config=configs/[experiment].yaml
 ```
 The script will both pretrain and finetune a model for a given experimental setup (e.g., PDE, model, # fine-tuning samples, fine-tuning distribution).
