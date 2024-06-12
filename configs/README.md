@@ -27,7 +27,7 @@ python train.py --config=configs/[experiment].yaml --augmentation=['noise', 'shi
 
 To specify a desired # of downstream samples or distribution:
 ```
-python train.py --config=configs/[experiment].yaml --samples_list=[100, 250] --distribution_list=["out"]
+python train.py --config=configs/[experiment].yaml --samples_list=[100, 250, ...] --distribution_list=["in", "out"]
 ```
 
 To fine-tune on a specific equation:
