@@ -1,6 +1,6 @@
-# Strategies for Pretraining Neural Solvers
+# Strategies for Pretraining Neural Operators
 
-This repository is the official implementation of [Strategies for Pretraining Neural Solvers](https://arxiv.org/abs/2406.08473)
+This repository is the official implementation of [Strategies for Pretraining Neural Operators](https://arxiv.org/abs/2406.08473)
 
 ## Requirements
 
